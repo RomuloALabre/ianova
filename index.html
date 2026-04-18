@@ -270,24 +270,34 @@
       border-bottom: 1px solid var(--border);
       background: var(--bg2);
       overflow: hidden; padding: .6rem 0;
+      position: relative;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
     }
 
     .ticker-inner {
       display: flex; gap: 3rem;
-      animation: ticker 30s linear infinite;
+      animation: ticker 40s linear infinite;
       white-space: nowrap;
+      will-change: transform;
+      transform: translateZ(0);
+      -webkit-font-smoothing: antialiased;
+      backface-visibility: hidden;
     }
+
+    .ticker-wrap:hover .ticker-inner { animation-play-state: paused; }
 
     .ticker-item {
       font-family: var(--font-mono); font-size: .75rem;
       color: var(--muted); display: flex; align-items: center; gap: .5rem;
+      flex-shrink: 0;
     }
 
-    .ticker-item span { color: var(--accent); }
+    .ticker-item span { color: var(--accent); font-weight: 600; }
 
     @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+      from { transform: translate3d(0, 0, 0); }
+      to   { transform: translate3d(-50%, 0, 0); }
     }
 
     /* ─── FEATURED ─── */
@@ -711,21 +721,114 @@
       font-family: var(--font-mono);
     }
 
-    /* ─── RESPONSIVE ─── */
+    /* ─── HAMBURGER MENU ─── */
+    .menu-toggle {
+      display: none;
+      flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: .4rem;
+    }
+    .menu-toggle span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text); border-radius: 2px;
+      transition: all .25s;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: .75rem 1.25rem;
+    }
+    .mobile-nav a {
+      color: var(--muted); text-decoration: none;
+      font-size: .95rem; font-weight: 500;
+      padding: .65rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color .2s;
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover { color: var(--accent); }
+    .mobile-nav.open { display: flex; }
+
+    /* ─── TABLET ─── */
     @media (max-width: 900px) {
       .featured-grid { grid-template-columns: 1fr; }
-      .card-main { grid-row: auto; min-height: 300px; }
+      .card-main { grid-row: auto; min-height: 280px; }
       .articles-grid { grid-template-columns: 1fr 1fr; }
       .two-col { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
       nav { display: none; }
+      .menu-toggle { display: flex; }
+      .header-cta { display: none; }
     }
 
+    /* ─── MOBILE ─── */
     @media (max-width: 600px) {
+      /* Layout */
       .articles-grid { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
       .nl-form { flex-direction: column; }
-      .hero h1 { font-size: 2.4rem; }
+      .topics { padding: 0 1rem 1.5rem; gap: .4rem; }
+      .section { padding: 2rem 1rem; }
+
+      /* Hero — corrige repuxamento e espaçamento */
+      .hero { padding: 3rem 1rem 2.5rem; }
+      .hero h1 {
+        font-size: 2.2rem;
+        letter-spacing: -.01em;   /* muito menos apertado no mobile */
+        line-height: 1.15;
+      }
+      .hero-sub { font-size: 1rem; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: .75rem; }
+
+      /* Header */
+      .header-inner { padding: 0 1rem; }
+      .logo { font-size: 1.25rem; }
+
+      /* Cards */
+      .card-main { min-height: 240px; padding: 1.5rem; }
+      .card { padding: 1.25rem; }
+      .card-main .card-title { font-size: 1.3rem; }
+
+      /* Featured grid — empilha sem cortar */
+      .featured-grid { gap: 1px; border-radius: 8px; }
+
+      /* Footer */
+      .footer-inner { padding: 2rem 1rem 1rem; }
+      .footer-bottom { flex-direction: column; gap: .5rem; text-align: center; padding: 1rem; }
+
+      /* Newsletter */
+      .newsletter { padding: 1.75rem 1rem; }
+      .newsletter h3 { font-size: 1.2rem; }
+
+      /* Compare table — scroll horizontal */
+      .compare-wrap { overflow-x: auto; }
+      .compare-table { min-width: 560px; }
+
+      /* Sidebar esconde no mobile */
+      .sidebar-widget { display: none; }
+      .two-col aside { display: none; }
+    }
+
+    /* ─── TEXT OVERFLOW FIX ─── */
+    .card-title, .card-excerpt, .card-category,
+    .article-body .card-title, .trending-text a {
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .card { overflow: hidden; }
+    .article-card .article-body { overflow: hidden; }
+
+    /* Prevent any element from overflowing its container */
+    * { min-width: 0; }
+
+    @media (max-width: 600px) {
+      .section-header { flex-wrap: wrap; gap: .5rem; }
+      .compare-table th, .compare-table td { padding: .7rem .75rem; font-size: .78rem; }
+      .week-stats { grid-template-columns: repeat(3,1fr); }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .topics { overflow-x: auto; flex-wrap: nowrap; padding-bottom: .75rem; }
+      .topic-pill { flex-shrink: 0; }
     }
   </style>
 </head>
@@ -747,8 +850,20 @@
       <a href="#">Sobre</a>
     </nav>
     <a href="#newsletter" class="header-cta">Newsletter grátis</a>
+    <button class="menu-toggle" onclick="document.getElementById('mobileNav').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#">Início</a>
+  <a href="#">Comparativos</a>
+  <a href="#">Tutoriais</a>
+  <a href="#">Ferramentas</a>
+  <a href="#">Notícias</a>
+  <a href="#">Sobre</a>
+  <a href="#newsletter" style="color:var(--accent);font-weight:600;">Newsletter grátis →</a>
+</nav>
 
 <!-- TICKER -->
 <div class="ticker-wrap">
@@ -805,7 +920,7 @@
   <div class="featured-grid">
 
     <!-- Main card -->
-    <a href="artigo.html" class="card card-main" style="text-decoration:none;">
+    <a href="artigo.html" target="_blank" rel="noopener" class="card card-main" style="text-decoration:none;">
       <div class="card-img-placeholder">
         <div class="grid-lines"></div>
         <div class="orb orb-1"></div>
@@ -825,7 +940,7 @@
     </a>
 
     <!-- Side cards -->
-    <a href="artigo.html" class="card" style="text-decoration:none;">
+    <a href="artigo.html" target="_blank" rel="noopener" class="card" style="text-decoration:none;">
       <div class="card-category">Tutorial</div>
       <h3 class="card-title">Como criar imagens profissionais com IA em 5 minutos</h3>
       <div class="card-meta">
@@ -835,7 +950,7 @@
       <p class="card-excerpt">Guia passo a passo com Midjourney, DALL·E e Stable Diffusion.</p>
     </a>
 
-    <a href="artigo.html" class="card" style="text-decoration:none;">
+    <a href="artigo.html" target="_blank" rel="noopener" class="card" style="text-decoration:none;">
       <div class="card-category">Tendência</div>
       <h3 class="card-title">Agentes de IA: a próxima revolução já começou</h3>
       <div class="card-meta">
@@ -862,7 +977,7 @@
       </div>
       <div class="articles-grid" style="margin-bottom:3rem;">
 
-        <a href="artigo.html" class="article-card">
+        <a href="artigo.html" target="_blank" rel="noopener" class="article-card">
           <div class="article-thumb"><div class="thumb-gradient thumb-1"></div><div class="thumb-icon">🤖</div></div>
           <div class="article-body">
             <div class="card-category">Ferramentas</div>
@@ -874,7 +989,7 @@
           </div>
         </a>
 
-        <a href="artigo.html" class="article-card">
+        <a href="artigo.html" target="_blank" rel="noopener" class="article-card">
           <div class="article-thumb"><div class="thumb-gradient thumb-2"></div><div class="thumb-icon">✍️</div></div>
           <div class="article-body">
             <div class="card-category">Produtividade</div>
@@ -886,7 +1001,7 @@
           </div>
         </a>
 
-        <a href="artigo.html" class="article-card">
+        <a href="artigo.html" target="_blank" rel="noopener" class="article-card">
           <div class="article-thumb"><div class="thumb-gradient thumb-3"></div><div class="thumb-icon">💼</div></div>
           <div class="article-body">
             <div class="card-category">Negócios</div>
@@ -898,7 +1013,7 @@
           </div>
         </a>
 
-        <a href="artigo.html" class="article-card">
+        <a href="artigo.html" target="_blank" rel="noopener" class="article-card">
           <div class="article-thumb"><div class="thumb-gradient thumb-4"></div><div class="thumb-icon">🎨</div></div>
           <div class="article-body">
             <div class="card-category">Design</div>
@@ -910,7 +1025,7 @@
           </div>
         </a>
 
-        <a href="artigo.html" class="article-card">
+        <a href="artigo.html" target="_blank" rel="noopener" class="article-card">
           <div class="article-thumb"><div class="thumb-gradient thumb-5"></div><div class="thumb-icon">🎓</div></div>
           <div class="article-body">
             <div class="card-category">Educação</div>
@@ -922,7 +1037,7 @@
           </div>
         </a>
 
-        <a href="artigo.html" class="article-card">
+        <a href="artigo.html" target="_blank" rel="noopener" class="article-card">
           <div class="article-thumb"><div class="thumb-gradient thumb-6"></div><div class="thumb-icon">⚡</div></div>
           <div class="article-body">
             <div class="card-category">Tutorial</div>
@@ -939,7 +1054,7 @@
       <!-- COMPARATIVO TABLE -->
       <div class="section-header" id="comparativos">
         <div class="section-title">Comparativo rápido</div>
-        <a href="artigo.html" class="see-all">análise completa →</a>
+        <a href="artigo.html" target="_blank" rel="noopener" class="see-all">análise completa →</a>
       </div>
       <div class="compare-wrap">
         <div class="compare-header">
@@ -1019,35 +1134,35 @@
         <div class="trending-item">
           <span class="trending-num">01</span>
           <div class="trending-text">
-            <a href="artigo.html">ChatGPT vs Gemini: qual é melhor para o trabalho?</a>
+            <a href="artigo.html" target="_blank" rel="noopener">ChatGPT vs Gemini: qual é melhor para o trabalho?</a>
             <div class="trending-cat">Comparativo</div>
           </div>
         </div>
         <div class="trending-item">
           <span class="trending-num">02</span>
           <div class="trending-text">
-            <a href="artigo.html">Os melhores prompts para criar imagens realistas</a>
+            <a href="artigo.html" target="_blank" rel="noopener">Os melhores prompts para criar imagens realistas</a>
             <div class="trending-cat">Tutorial</div>
           </div>
         </div>
         <div class="trending-item">
           <span class="trending-num">03</span>
           <div class="trending-text">
-            <a href="artigo.html">IA vai substituir desenvolvedores em 2026?</a>
+            <a href="artigo.html" target="_blank" rel="noopener">IA vai substituir desenvolvedores em 2026?</a>
             <div class="trending-cat">Opinião</div>
           </div>
         </div>
         <div class="trending-item">
           <span class="trending-num">04</span>
           <div class="trending-text">
-            <a href="artigo.html">Como o Claude funciona por dentro</a>
+            <a href="artigo.html" target="_blank" rel="noopener">Como o Claude funciona por dentro</a>
             <div class="trending-cat">Explicativo</div>
           </div>
         </div>
         <div class="trending-item">
           <span class="trending-num">05</span>
           <div class="trending-text">
-            <a href="artigo.html">Ferramentas de IA para freelancers em 2026</a>
+            <a href="artigo.html" target="_blank" rel="noopener">Ferramentas de IA para freelancers em 2026</a>
             <div class="trending-cat">Ferramentas</div>
           </div>
         </div>
