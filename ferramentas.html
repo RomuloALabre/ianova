@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══ SEO ═══ -->
+  <title>Diretório de Ferramentas de IA 2026 — IAhoje</title>
+  <meta name="description" content="O maior diretório de ferramentas de inteligência artificial em português. Compare, filtre e encontre a IA certa para cada tarefa — escrita, imagens, vídeo, código, produtividade e mais." />
+  <meta name="keywords" content="ferramentas de IA, melhores IAs 2026, diretório inteligência artificial, ChatGPT, Gemini, Claude, Midjourney, ferramentas gratuitas IA, IA para trabalho, IA para criadores" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" href="https://iahoje.ia.br/ferramentas/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IAhoje" />
+  <meta property="og:title" content="Diretório de Ferramentas de IA 2026 — IAhoje" />
+  <meta property="og:description" content="Encontre a IA certa para cada tarefa. Mais de 40 ferramentas categorizadas e avaliadas em português." />
+  <meta property="og:url" content="https://iahoje.ia.br/ferramentas/" />
+  <meta property="og:image" content="https://iahoje.ia.br/assets/og-ferramentas.png" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Diretório de Ferramentas de IA 2026",
+    "description": "O maior diretório de ferramentas de inteligência artificial em português.",
+    "url": "https://iahoje.ia.br/ferramentas/",
+    "publisher": { "@type": "Organization", "name": "IAhoje", "url": "https://iahoje.ia.br" },
+    "inLanguage": "pt-BR"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #0a0a0f;
+      --bg2:     #0f0f18;
+      --bg3:     #16161f;
+      --surface: #1a1a26;
+      --border:  #252535;
+      --text:    #e8e8f0;
+      --muted:   #7070a0;
+      --accent:  #00e5ff;
+      --accent2: #bf5fff;
+      --accent3: #ff6b35;
+      --green:   #00ff88;
+      --yellow:  #ffd60a;
+      --fhead:   'Syne', sans-serif;
+      --fbody:   'DM Sans', sans-serif;
+      --fmono:   'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: var(--fbody); font-size: 16px;
+      line-height: 1.6; overflow-x: hidden;
+    }
+
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999; opacity: .4;
+    }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    /* ─── HEADER ─── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,15,.88); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      font-family: var(--fhead); font-size: 1.5rem; font-weight: 800;
+      color: var(--text); text-decoration: none;
+      display: flex; align-items: center; gap: .5rem; letter-spacing: -.02em;
+    }
+    .logo-badge {
+      background: var(--accent); color: #000;
+      font-size: .55rem; font-weight: 700; padding: 2px 6px;
+      border-radius: 3px; font-family: var(--fmono); letter-spacing: .08em;
+    }
+    nav { display: flex; gap: .25rem; }
+    nav a {
+      color: var(--muted); text-decoration: none; font-size: .85rem; font-weight: 500;
+      padding: .4rem .75rem; border-radius: 6px; transition: color .2s, background .2s;
+    }
+    nav a:hover { color: var(--text); background: var(--surface); }
+    nav a.active { color: var(--accent); }
+    .header-cta {
+      background: var(--accent); color: #000; border: none;
+      font-family: var(--fbody); font-size: .8rem; font-weight: 600;
+      padding: .45rem 1rem; border-radius: 6px; cursor: pointer;
+      text-decoration: none; transition: opacity .2s;
+    }
+    .header-cta:hover { opacity: .85; }
+    .menu-toggle {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: .4rem;
+    }
+    .menu-toggle span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+    .mobile-nav {
+      display: none; flex-direction: column;
+      position: fixed; top: 64px; left: 0; right: 0; z-index: 200;
+      background: var(--bg2); border-bottom: 1px solid var(--border);
+      padding: .75rem 1.25rem; box-shadow: 0 8px 32px rgba(0,0,0,.5);
+    }
+    .mobile-nav a {
+      color: var(--muted); text-decoration: none; font-size: .95rem; font-weight: 500;
+      padding: .65rem 0; border-bottom: 1px solid var(--border); transition: color .2s;
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover { color: var(--accent); }
+    .mobile-nav.open { display: flex; }
+    .nav-backdrop {
+      display: none; position: fixed; inset: 0; top: 64px;
+      z-index: 199; background: rgba(0,0,0,.4);
+    }
+    .nav-backdrop.open { display: block; }
+
+    /* ─── HERO ─── */
+    .dir-hero {
+      max-width: 1280px; margin: 0 auto; padding: 4rem 2rem 2.5rem;
+      position: relative; overflow: hidden;
+    }
+    .dir-hero::before {
+      content: ''; position: absolute; top: -80px; right: -100px;
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(0,229,255,.07) 0%, rgba(191,95,255,.04) 50%, transparent 70%);
+      pointer-events: none;
+    }
+    .dir-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-family: var(--fmono); font-size: .72rem; color: var(--accent);
+      border: 1px solid rgba(0,229,255,.25); padding: .3rem .85rem;
+      border-radius: 100px; margin-bottom: 1.25rem;
+    }
+    .dir-tag::before {
+      content: ''; width: 6px; height: 6px; background: var(--accent);
+      border-radius: 50%; animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+
+    .dir-hero h1 {
+      font-family: var(--fhead); font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800; line-height: 1.1; letter-spacing: -.03em;
+      margin-bottom: .75rem;
+    }
+    .dir-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .dir-hero p { color: var(--muted); font-size: 1.05rem; max-width: 560px; }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      max-width: 1280px; margin: 0 auto; padding: 0 2rem 2.5rem;
+      display: flex; gap: 2rem; flex-wrap: wrap;
+    }
+    .stat-item {
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .stat-val {
+      font-family: var(--fhead); font-size: 1.6rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-lbl { font-size: .8rem; color: var(--muted); line-height: 1.3; }
+
+    /* ─── SEARCH + FILTERS ─── */
+    .controls {
+      max-width: 1280px; margin: 0 auto; padding: 0 2rem 2rem;
+      display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+    }
+    .search-wrap {
+      flex: 1; min-width: 260px; position: relative;
+    }
+    .search-icon {
+      position: absolute; left: .9rem; top: 50%; transform: translateY(-50%);
+      color: var(--muted); font-size: .9rem; pointer-events: none;
+    }
+    .search-input {
+      width: 100%; background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: .75rem 1rem .75rem 2.5rem;
+      color: var(--text); font-family: var(--fbody); font-size: .9rem;
+      outline: none; transition: border-color .2s;
+    }
+    .search-input::placeholder { color: var(--muted); }
+    .search-input:focus { border-color: var(--accent); }
+
+    .filter-group { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .filter-btn {
+      background: var(--surface); color: var(--muted);
+      border: 1px solid var(--border); border-radius: 8px;
+      font-family: var(--fbody); font-size: .8rem; font-weight: 500;
+      padding: .55rem 1rem; cursor: pointer; transition: all .2s;
+      white-space: nowrap;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-btn.active {
+      background: rgba(0,229,255,.1); border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ─── CATEGORY TABS ─── */
+    .cat-tabs {
+      max-width: 1280px; margin: 0 auto; padding: 0 2rem 2rem;
+      display: flex; gap: .6rem; overflow-x: auto; padding-bottom: .75rem;
+      -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
+      mask-image: linear-gradient(to right, black 90%, transparent 100%);
+    }
+    .cat-tabs::-webkit-scrollbar { display: none; }
+    .cat-tab {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; padding: .6rem 1.1rem;
+      display: flex; align-items: center; gap: .5rem;
+      font-size: .82rem; font-weight: 500; color: var(--muted);
+      cursor: pointer; transition: all .2s; white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .cat-tab:hover { border-color: var(--accent); color: var(--text); }
+    .cat-tab.active { background: rgba(0,229,255,.08); border-color: var(--accent); color: var(--accent); }
+    .cat-tab .cat-emoji { font-size: 1rem; }
+    .cat-tab .cat-count {
+      background: var(--surface); color: var(--muted);
+      font-family: var(--fmono); font-size: .65rem;
+      padding: 1px 6px; border-radius: 100px;
+    }
+    .cat-tab.active .cat-count { background: rgba(0,229,255,.15); color: var(--accent); }
+
+    /* ─── MAIN LAYOUT ─── */
+    .dir-main {
+      max-width: 1280px; margin: 0 auto; padding: 0 2rem 4rem;
+    }
+
+    /* ─── CATEGORY SECTION ─── */
+    .cat-section { margin-bottom: 3.5rem; }
+    .cat-header {
+      display: flex; align-items: center; gap: .85rem;
+      margin-bottom: 1.5rem; padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .cat-header-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .cat-header-info h2 {
+      font-family: var(--fhead); font-size: 1.1rem; font-weight: 800;
+      letter-spacing: -.02em;
+    }
+    .cat-header-info p { font-size: .8rem; color: var(--muted); margin-top: .1rem; }
+
+    /* ─── TOOL GRID ─── */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    /* ─── TOOL CARD ─── */
+    .tool-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.25rem;
+      display: flex; flex-direction: column; gap: .75rem;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+      cursor: pointer; position: relative; overflow: hidden;
+      text-decoration: none; color: inherit;
+    }
+    .tool-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, transparent 60%, rgba(0,229,255,.03));
+      pointer-events: none;
+    }
+    .tool-card:hover {
+      border-color: rgba(0,229,255,.35);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+    }
+
+    .tool-card-top {
+      display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem;
+    }
+    .tool-icon-wrap {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+    .tool-badges { display: flex; flex-wrap: wrap; gap: .3rem; justify-content: flex-end; }
+
+    .badge {
+      font-size: .6rem; font-family: var(--fmono); font-weight: 600;
+      padding: 2px 7px; border-radius: 100px; white-space: nowrap;
+    }
+    .badge-free    { background: rgba(0,255,136,.1); color: var(--green); border: 1px solid rgba(0,255,136,.2); }
+    .badge-paid    { background: rgba(255,107,53,.08); color: var(--accent3); border: 1px solid rgba(255,107,53,.2); }
+    .badge-freemium{ background: rgba(0,229,255,.08); color: var(--accent); border: 1px solid rgba(0,229,255,.2); }
+    .badge-new     { background: rgba(255,214,10,.1); color: var(--yellow); border: 1px solid rgba(255,214,10,.2); }
+    .badge-hot     { background: rgba(255,107,53,.15); color: #ff8c5a; border: 1px solid rgba(255,107,53,.25); }
+    .badge-br      { background: rgba(0,156,59,.1); color: #00c950; border: 1px solid rgba(0,156,59,.2); }
+
+    .tool-name {
+      font-family: var(--fhead); font-size: 1rem; font-weight: 700;
+      letter-spacing: -.01em;
+    }
+    .tool-desc {
+      font-size: .825rem; color: var(--muted); line-height: 1.55;
+      flex: 1;
+    }
+    .tool-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: .6rem; border-top: 1px solid rgba(37,37,53,.7);
+    }
+    .tool-best-for {
+      font-family: var(--fmono); font-size: .65rem; color: var(--muted);
+      display: flex; align-items: center; gap: .3rem;
+    }
+    .tool-best-for strong { color: var(--text); font-weight: 500; }
+
+    .tool-stars { display: flex; gap: 2px; }
+    .star { color: var(--yellow); font-size: .7rem; }
+    .star.half { opacity: .4; }
+
+    .tool-link {
+      font-family: var(--fmono); font-size: .7rem; color: var(--accent);
+      opacity: 0; transition: opacity .2s;
+      display: flex; align-items: center; gap: .25rem;
+    }
+    .tool-card:hover .tool-link { opacity: 1; }
+
+    /* ─── FEATURED TOOL (wide card) ─── */
+    .tool-card.featured {
+      grid-column: 1 / -1;
+      flex-direction: row; gap: 1.5rem; align-items: center;
+      padding: 1.5rem 2rem;
+      background: linear-gradient(135deg, rgba(0,229,255,.05), rgba(191,95,255,.03));
+      border-color: rgba(0,229,255,.2);
+    }
+    .tool-card.featured .tool-icon-wrap {
+      width: 60px; height: 60px; font-size: 2rem; flex-shrink: 0;
+    }
+    .tool-card.featured .tool-name { font-size: 1.2rem; }
+    .featured-body { flex: 1; }
+    .featured-label {
+      font-family: var(--fmono); font-size: .65rem; color: var(--accent);
+      text-transform: uppercase; letter-spacing: .1em; margin-bottom: .3rem;
+    }
+    .tool-card.featured .tool-footer { border: none; padding-top: 0; }
+
+    /* ─── EMPTY STATE ─── */
+    .empty-state {
+      text-align: center; padding: 4rem 2rem;
+      color: var(--muted); display: none;
+    }
+    .empty-state .es-icon { font-size: 3rem; margin-bottom: 1rem; opacity: .4; }
+    .empty-state p { font-size: .9rem; }
+
+    /* ─── FOOTER ─── */
+    footer { border-top: 1px solid var(--border); background: var(--bg2); margin-top: 2rem; }
+    .footer-inner {
+      max-width: 1280px; margin: 0 auto; padding: 2.5rem 2rem 2rem;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem;
+    }
+    .footer-brand p { font-size: .825rem; color: var(--muted); line-height: 1.6; margin-top: .5rem; }
+    .footer-col h4 {
+      font-family: var(--fhead); font-size: .8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .08em;
+      color: var(--muted); margin-bottom: .9rem;
+    }
+    .footer-col a {
+      display: block; color: var(--muted); text-decoration: none;
+      font-size: .825rem; margin-bottom: .45rem; transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom {
+      max-width: 1280px; margin: 0 auto; padding: 1.25rem 2rem;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: .75rem; color: var(--muted); font-family: var(--fmono);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      nav { display: none; }
+      .menu-toggle { display: flex; }
+      .header-cta { display: none; }
+      .tool-card.featured { flex-direction: column; }
+    }
+    @media (max-width: 600px) {
+      .dir-hero { padding: 2.5rem 1rem 1.5rem; }
+      .stats-bar { padding: 0 1rem 1.5rem; gap: 1.25rem; }
+      .controls { padding: 0 1rem 1.25rem; }
+      .cat-tabs { padding: 0 1rem .75rem; }
+      .dir-main { padding: 0 1rem 3rem; }
+      .tool-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1rem 1rem; }
+      .footer-bottom { flex-direction: column; gap: .5rem; text-align: center; padding: 1rem; }
+      .filter-group { display: none; }
+      * { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">IAhoje <span class="logo-badge">BETA</span></a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="#">Comparativos</a>
+      <a href="#">Tutoriais</a>
+      <a href="ferramentas.html" class="active">Ferramentas</a>
+      <a href="#">Notícias</a>
+    </nav>
+    <a href="index.html#newsletter" class="header-cta">Newsletter grátis</a>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html">Início</a>
+  <a href="#">Comparativos</a>
+  <a href="#">Tutoriais</a>
+  <a href="ferramentas.html" style="color:var(--accent)">Ferramentas</a>
+  <a href="#">Notícias</a>
+  <a href="index.html#newsletter" style="color:var(--accent);font-weight:600;">Newsletter grátis →</a>
+</nav>
+<div class="nav-backdrop" id="navBackdrop" onclick="closeMenu()"></div>
+
+<!-- HERO -->
+<div class="dir-hero">
+  <div class="dir-tag">Atualizado abril 2026</div>
+  <h1>Diretório de<br><em>Ferramentas de IA</em></h1>
+  <p>Mais de 40 ferramentas categorizadas, testadas e avaliadas em português. Encontre a IA certa para cada tarefa.</p>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div>
+      <div class="stat-val">42</div>
+      <div class="stat-lbl">ferramentas<br>catalogadas</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div>
+      <div class="stat-val">9</div>
+      <div class="stat-lbl">categorias<br>disponíveis</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div>
+      <div class="stat-val">18</div>
+      <div class="stat-lbl">ferramentas<br>gratuitas</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div>
+      <div class="stat-val">Abr/26</div>
+      <div class="stat-lbl">última<br>atualização</div>
+    </div>
+  </div>
+</div>
+
+<!-- SEARCH + FILTERS -->
+<div class="controls">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" type="text" id="searchInput" placeholder="Buscar ferramentas... ex: ChatGPT, vídeo, gratuito" oninput="filterTools()" />
+  </div>
+  <div class="filter-group">
+    <button class="filter-btn active" onclick="setFilter('todos', this)">Todos</button>
+    <button class="filter-btn" onclick="setFilter('gratuito', this)">✅ Gratuito</button>
+    <button class="filter-btn" onclick="setFilter('freemium', this)">⚡ Freemium</button>
+    <button class="filter-btn" onclick="setFilter('pago', this)">💎 Pago</button>
+    <button class="filter-btn" onclick="setFilter('novo', this)">🆕 Novidade</button>
+  </div>
+</div>
+
+<!-- CATEGORY TABS -->
+<div class="cat-tabs" id="catTabs">
+  <div class="cat-tab active" onclick="setCategory('todos', this)">
+    <span class="cat-emoji">🌐</span> Todos <span class="cat-count">42</span>
+  </div>
+  <div class="cat-tab" onclick="setCategory('chatbots', this)">
+    <span class="cat-emoji">🤖</span> Chatbots IA <span class="cat-count">6</span>
+  </div>
+  <div class="cat-tab" onclick="setCategory('imagens', this)">
+    <span class="cat-emoji">🎨</span> Imagens <span class="cat-count">6</span>
+  </div>
+  <div class="cat-tab" onclick="setCategory('video', this)">
+    <span class="cat-emoji">🎬</span> Vídeo <span class="cat-count">5</span>
+  </div>
+  <div class="cat-tab" onclick="setCategory('codigo', this)">
+    <span class="cat-emoji">💻</span> Código <span class="cat-count">5</span>
+  </div>
+  <div class="cat-tab" onclick="setCategory('escrita', this)">
+    <span class="cat-emoji">✍️</span> Escrita <span class="cat-count">5</span>
+  </div>
+  <div class="cat-tab" onclick="setCategory('audio', this)">
+    <span class="cat-emoji">🎙️</span> Áudio & Voz <span class="cat-count">4</span>
+  </div>
+  <div class="cat-tab" onclick="setCategory('produtividade', this)">
+    <span class="cat-emoji">⚡</span> Produtividade <span class="cat-count">5</span>
+  </div>
+  <div class="cat-tab" onclick="setCategory('pesquisa', this)">
+    <span class="cat-emoji">🔎</span> Pesquisa <span class="cat-count">4</span>
+  </div>
+  <div class="cat-tab" onclick="setCategory('brasil', this)">
+    <span class="cat-emoji">🇧🇷</span> IA no Brasil <span class="cat-count">2</span>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="dir-main" id="dirMain">
+  <div class="empty-state" id="emptyState">
+    <div class="es-icon">🔍</div>
+    <p>Nenhuma ferramenta encontrada para essa busca.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">IAhoje <span class="logo-badge">BETA</span></a>
+      <p>O portal brasileiro de inteligência artificial. Comparativos, tutoriais e novidades em português.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Conteúdo</h4>
+      <a href="#">Comparativos</a>
+      <a href="#">Tutoriais</a>
+      <a href="ferramentas.html">Ferramentas</a>
+      <a href="#">Notícias</a>
+    </div>
+    <div class="footer-col">
+      <h4>Categorias</h4>
+      <a href="#">Chatbots</a>
+      <a href="#">Imagens</a>
+      <a href="#">Vídeo</a>
+      <a href="#">Código</a>
+    </div>
+    <div class="footer-col">
+      <h4>IAhoje</h4>
+      <a href="#">Sobre</a>
+      <a href="index.html#newsletter">Newsletter</a>
+      <a href="#">Anuncie</a>
+      <a href="#">Contato</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 IAhoje.ia.br — Todos os direitos reservados</span>
+    <span>Feito com IA, curado por humanos</span>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════
+// DATA — ferramentas de IA
+// ═══════════════════════════════════════════════
+const tools = [
+
+  // ── CHATBOTS ──
+  { id:'chatgpt',  cat:'chatbots', name:'ChatGPT',       icon:'🤖', color:'#10a37f',
+    desc:'O assistente de IA mais popular do mundo. Ideal para escrita, análise, brainstorming, código e conversas gerais. Plano gratuito generoso com GPT-4o.',
+    badges:['freemium','hot'], bestFor:'uso geral', stars:5, url:'https://chat.openai.com', featured:true },
+
+  { id:'gemini',   cat:'chatbots', name:'Gemini',         icon:'✨', color:'#4285f4',
+    desc:'IA do Google com integração nativa ao Workspace. Excelente para raciocínio, análise de documentos longos e tarefas multimodais. Gemini 3 Flash é o mais rápido.',
+    badges:['freemium','hot'], bestFor:'Google Workspace', stars:5, url:'https://gemini.google.com' },
+
+  { id:'claude',   cat:'chatbots', name:'Claude Opus 4.7',icon:'🧠', color:'#cc785c',
+    desc:'O modelo mais avançado da Anthropic. Destaque em escrita criativa, análise profunda e código complexo. Opus 4.7 lançado em abril 2026 com visão aprimorada.',
+    badges:['freemium','novo'], bestFor:'escrita & código', stars:5, url:'https://claude.ai' },
+
+  { id:'grok',     cat:'chatbots', name:'Grok 3',         icon:'⚡', color:'#bf5fff',
+    desc:'IA da xAI com acesso em tempo real ao X/Twitter. Excelente para notícias, humor e análise de tendências. Integrado ao X Premium.',
+    badges:['pago'], bestFor:'tendências & notícias', stars:4, url:'https://grok.com' },
+
+  { id:'copilot',  cat:'chatbots', name:'Microsoft Copilot',icon:'🪟', color:'#0078d4',
+    desc:'IA da Microsoft integrada ao Windows, Office e Edge. Grátis para usuários Windows com capacidades do GPT-4o. Perfeito para quem vive no ecossistema Microsoft.',
+    badges:['freemium'], bestFor:'Microsoft 365', stars:4, url:'https://copilot.microsoft.com' },
+
+  { id:'llama',    cat:'chatbots', name:'Meta AI / Llama', icon:'🦙', color:'#0064e0',
+    desc:'IA aberta da Meta disponível no WhatsApp, Instagram e Messenger. Llama 4 pode ser rodado localmente. Excelente opção open source para desenvolvedores.',
+    badges:['gratuito'], bestFor:'open source', stars:4, url:'https://meta.ai' },
+
+  // ── IMAGENS ──
+  { id:'midjourney',cat:'imagens', name:'Midjourney',     icon:'🎨', color:'#ff6b35',
+    desc:'Referência em geração de imagens artísticas. Produz visuais impressionantes com controle estético superior. Necessita Discord ou app próprio. Sem plano gratuito.',
+    badges:['pago','hot'], bestFor:'arte & design', stars:5, url:'https://midjourney.com' },
+
+  { id:'dalle',    cat:'imagens', name:'DALL·E 3',        icon:'🖼️', color:'#10a37f',
+    desc:'Gerador de imagens da OpenAI integrado ao ChatGPT. Excelente para imagens com texto e composições criativas. Disponível no plano gratuito do ChatGPT com limites.',
+    badges:['freemium'], bestFor:'imagens com texto', stars:4, url:'https://openai.com/dall-e-3' },
+
+  { id:'ideogram', cat:'imagens', name:'Ideogram 3',      icon:'💡', color:'#a855f7',
+    desc:'Especialista em imagens com tipografia. Melhor IA do mercado para criar imagens com letras, logos e textos integrados. Plano gratuito generoso.',
+    badges:['freemium','novo'], bestFor:'logos & tipografia', stars:5, url:'https://ideogram.ai' },
+
+  { id:'stable',   cat:'imagens', name:'Stable Diffusion',icon:'🌊', color:'#6366f1',
+    desc:'Modelo open source que pode rodar localmente. Controle total sobre o processo de geração. Curva de aprendizado maior, mas resultados personalizáveis.',
+    badges:['gratuito'], bestFor:'controle total', stars:4, url:'https://stability.ai' },
+
+  { id:'firefly',  cat:'imagens', name:'Adobe Firefly',   icon:'🦋', color:'#ff0000',
+    desc:'IA generativa da Adobe treinada em imagens licenciadas. Segura para uso comercial. Integrada ao Photoshop e Illustrator. Créditos gratuitos mensais.',
+    badges:['freemium'], bestFor:'uso comercial', stars:4, url:'https://firefly.adobe.com' },
+
+  { id:'flux',     cat:'imagens', name:'Flux (Black Forest)',icon:'🌌', color:'#4f46e5',
+    desc:'Modelo de última geração com qualidade fotorrealista excepcional. Disponível via API e várias plataformas. Considerado o mais avançado em realismo.',
+    badges:['freemium','novo'], bestFor:'fotorrealismo', stars:5, url:'https://blackforestlabs.ai' },
+
+  // ── VÍDEO ──
+  { id:'sora',     cat:'video', name:'Sora',              icon:'🎬', color:'#10a37f',
+    desc:'Gerador de vídeo da OpenAI capaz de criar cenas cinematográficas de até 20 segundos. Qualidade impressionante com grande aderência ao prompt.',
+    badges:['pago','hot'], bestFor:'vídeos curtos', stars:5, url:'https://sora.com' },
+
+  { id:'veo',      cat:'video', name:'Veo 3',             icon:'📹', color:'#4285f4',
+    desc:'Gerador de vídeo do Google DeepMind com áudio nativo sincronizado. Veo 3 lançado em 2026 é referência em qualidade cinematográfica com som.',
+    badges:['pago','novo'], bestFor:'vídeo + áudio', stars:5, url:'https://deepmind.google' },
+
+  { id:'runway',   cat:'video', name:'Runway Gen-4',      icon:'🚀', color:'#8b5cf6',
+    desc:'Plataforma profissional de vídeo com IA. Edição, geração e efeitos especiais. Favorito de criadores e produtoras. Plano gratuito com créditos limitados.',
+    badges:['freemium'], bestFor:'edição profissional', stars:4, url:'https://runwayml.com' },
+
+  { id:'kling',    cat:'video', name:'Kling AI',          icon:'🎭', color:'#ef4444',
+    desc:'Gerador de vídeo chinês com qualidade competitiva ao Sora. Destaque em movimentos de câmera e consistência de personagens. Plano gratuito disponível.',
+    badges:['freemium'], bestFor:'personagens', stars:4, url:'https://klingai.com' },
+
+  { id:'synthesia',cat:'video', name:'Synthesia',         icon:'👤', color:'#06b6d4',
+    desc:'Crie vídeos com apresentadores virtuais realistas a partir de texto. Ideal para treinamentos, apresentações e conteúdo corporativo em múltiplos idiomas.',
+    badges:['pago'], bestFor:'vídeos corporativos', stars:4, url:'https://synthesia.io' },
+
+  // ── CÓDIGO ──
+  { id:'cursor',   cat:'codigo', name:'Cursor',           icon:'💻', color:'#00e5ff',
+    desc:'Editor de código com IA integrada que reescreve arquivos inteiros. Considerado o melhor IDE com IA para desenvolvedores profissionais em 2026.',
+    badges:['freemium','hot'], bestFor:'desenvolvimento', stars:5, url:'https://cursor.sh', featured:true },
+
+  { id:'copilot-code',cat:'codigo', name:'GitHub Copilot',icon:'🐙', color:'#333',
+    desc:'Assistente de código da GitHub/Microsoft. Autocomplete inteligente e chat dentro do VS Code. Grátis para estudantes e projetos open source.',
+    badges:['freemium'], bestFor:'VS Code', stars:4, url:'https://github.com/features/copilot' },
+
+  { id:'claude-code',cat:'codigo', name:'Claude Code',   icon:'⌨️', color:'#cc785c',
+    desc:'Interface de linha de comando da Anthropic para tarefas complexas de código. Reescreve projetos inteiros e resolve bugs difíceis com raciocínio profundo.',
+    badges:['pago','novo'], bestFor:'projetos complexos', stars:5, url:'https://claude.ai/code' },
+
+  { id:'replit',   cat:'codigo', name:'Replit AI',        icon:'🔴', color:'#f26207',
+    desc:'Plataforma de desenvolvimento em nuvem com IA. Ideal para iniciantes e prototipagem rápida. Cria, hospeda e publica apps direto no browser.',
+    badges:['freemium'], bestFor:'iniciantes', stars:4, url:'https://replit.com' },
+
+  { id:'v0',       cat:'codigo', name:'v0 by Vercel',     icon:'▲', color:'#fff',
+    desc:'Gera componentes React e interfaces completas a partir de descrições em texto. Referência para designers e devs que querem UI rápida e moderna.',
+    badges:['freemium','novo'], bestFor:'UI components', stars:4, url:'https://v0.dev' },
+
+  // ── ESCRITA ──
+  { id:'jasper',   cat:'escrita', name:'Jasper AI',       icon:'✍️', color:'#6366f1',
+    desc:'Plataforma de marketing com IA especializada em copy, blogs e anúncios. Tem voz de marca treinável e integra com ferramentas de marketing.',
+    badges:['pago'], bestFor:'marketing & copy', stars:4, url:'https://jasper.ai' },
+
+  { id:'copy-ai',  cat:'escrita', name:'Copy.ai',         icon:'📝', color:'#8b5cf6',
+    desc:'Gerador de copy para marketing com templates prontos. Bom para iniciantes que precisam de textos de venda, posts e e-mails rapidamente.',
+    badges:['freemium'], bestFor:'copy & vendas', stars:3, url:'https://copy.ai' },
+
+  { id:'grammarly',cat:'escrita', name:'Grammarly AI',    icon:'✅', color:'#15c39a',
+    desc:'Assistente de escrita que corrige gramática, estilo e tom em tempo real. Versão IA generativa ajuda a reescrever e melhorar textos inteiros.',
+    badges:['freemium'], bestFor:'revisão textual', stars:4, url:'https://grammarly.com' },
+
+  { id:'notion-ai',cat:'escrita', name:'Notion AI',       icon:'📓', color:'#fff',
+    desc:'IA integrada ao Notion para resumir, reescrever e gerar conteúdo dentro do seu workspace. Perfeito para quem já usa Notion no dia a dia.',
+    badges:['pago'], bestFor:'documentação', stars:4, url:'https://notion.so/product/ai' },
+
+  { id:'writesonic',cat:'escrita', name:'Writesonic',     icon:'🖊️', color:'#7c3aed',
+    desc:'Criador de conteúdo com IA para blogs, artigos e SEO. Tem integração com pesquisa de palavras-chave e otimização para Google.',
+    badges:['freemium'], bestFor:'blog & SEO', stars:3, url:'https://writesonic.com' },
+
+  // ── ÁUDIO ──
+  { id:'elevenlabs',cat:'audio', name:'ElevenLabs',       icon:'🎙️', color:'#ff6b35',
+    desc:'Referência mundial em síntese de voz. Clona qualquer voz com poucos segundos de áudio. Usado por podcasters, criadores e empresas. Plano gratuito disponível.',
+    badges:['freemium','hot'], bestFor:'voz & narração', stars:5, url:'https://elevenlabs.io' },
+
+  { id:'suno',     cat:'audio', name:'Suno AI',           icon:'🎵', color:'#ec4899',
+    desc:'Cria músicas completas (voz + instrumentação) a partir de um prompt de texto. Qualidade impressionante para composição rápida de jingles e trilhas.',
+    badges:['freemium','hot'], bestFor:'música & jingles', stars:5, url:'https://suno.ai' },
+
+  { id:'udio',     cat:'audio', name:'Udio',              icon:'🎶', color:'#a855f7',
+    desc:'Concorrente direto do Suno com foco em qualidade musical e variedade de gêneros. Excelente para música instrumental e experimental.',
+    badges:['freemium'], bestFor:'música instrumental', stars:4, url:'https://udio.com' },
+
+  { id:'whisper',  cat:'audio', name:'Whisper (OpenAI)',  icon:'👂', color:'#10a37f',
+    desc:'Modelo open source de transcrição de áudio da OpenAI. Suporta português e dezenas de idiomas com alta precisão. Gratuito para uso via API.',
+    badges:['gratuito'], bestFor:'transcrição', stars:5, url:'https://openai.com/research/whisper' },
+
+  // ── PRODUTIVIDADE ──
+  { id:'notebooklm',cat:'produtividade', name:'NotebookLM', icon:'📚', color:'#4285f4',
+    desc:'IA do Google que analisa seus documentos e responde perguntas baseada neles. Cria podcasts automáticos dos seus materiais. Totalmente gratuito.',
+    badges:['gratuito','hot'], bestFor:'estudos & resumos', stars:5, url:'https://notebooklm.google.com', featured:true },
+
+  { id:'zapier',   cat:'produtividade', name:'Zapier AI',  icon:'⚡', color:'#ff4a00',
+    desc:'Automatiza fluxos de trabalho entre centenas de apps com IA. Cria automações complexas sem código. Essencial para quem quer eliminar tarefas repetitivas.',
+    badges:['freemium'], bestFor:'automação', stars:4, url:'https://zapier.com' },
+
+  { id:'make',     cat:'produtividade', name:'Make (Integromat)',icon:'🔗', color:'#6d00cc',
+    desc:'Plataforma visual de automação com IA mais flexível que o Zapier. Perfeito para fluxos complexos e integração de múltiplas ferramentas.',
+    badges:['freemium'], bestFor:'automação avançada', stars:4, url:'https://make.com' },
+
+  { id:'otter',    cat:'produtividade', name:'Otter.ai',   icon:'🦦', color:'#4285f4',
+    desc:'Transcreve e resume reuniões automaticamente. Integra com Zoom, Meet e Teams. Gera resumos com pontos de ação. Essencial para reuniões remotas.',
+    badges:['freemium'], bestFor:'reuniões', stars:4, url:'https://otter.ai' },
+
+  { id:'perplexity-prod',cat:'produtividade', name:'Perplexity Pages',icon:'📄', color:'#20b2aa',
+    desc:'Cria relatórios e páginas completas a partir de pesquisas na web. Excelente para criar briefings, pesquisas de mercado e resumos executivos rapidamente.',
+    badges:['freemium'], bestFor:'relatórios & briefings', stars:4, url:'https://perplexity.ai' },
+
+  // ── PESQUISA ──
+  { id:'perplexity',cat:'pesquisa', name:'Perplexity AI', icon:'🔍', color:'#20b2aa',
+    desc:'Motor de busca com IA que cita fontes em tempo real. Substitui o Google para pesquisas que precisam de respostas diretas e verificadas.',
+    badges:['freemium','hot'], bestFor:'pesquisa web', stars:5, url:'https://perplexity.ai', featured:true },
+
+  { id:'consensus', cat:'pesquisa', name:'Consensus',     icon:'🔬', color:'#3b82f6',
+    desc:'Busca em estudos científicos com IA. Responde perguntas baseadas em evidências de artigos acadêmicos. Perfeito para saúde, ciência e pesquisa séria.',
+    badges:['freemium'], bestFor:'pesquisa científica', stars:4, url:'https://consensus.app' },
+
+  { id:'elicit',   cat:'pesquisa', name:'Elicit',         icon:'📊', color:'#6366f1',
+    desc:'Assistente de pesquisa acadêmica que analisa papers automaticamente. Resume, compara e extrai dados de centenas de artigos em minutos.',
+    badges:['freemium'], bestFor:'pesquisa acadêmica', stars:4, url:'https://elicit.org' },
+
+  { id:'youcom',   cat:'pesquisa', name:'You.com',        icon:'🌐', color:'#7c3aed',
+    desc:'Mecanismo de busca com IA personalizável. Combina resultados web com assistente de IA. Modo código e modo pesquisa separados.',
+    badges:['freemium'], bestFor:'busca personalizada', stars:3, url:'https://you.com' },
+
+  // ── BRASIL ──
+  { id:'maritaca', cat:'brasil', name:'MariTalk / Maritaca AI',icon:'🇧🇷', color:'#009c3b',
+    desc:'IA brasileira da Maritaca AI especializada em português. Modelos como Sabiá-3 são treinados com foco no contexto cultural e linguístico do Brasil.',
+    badges:['freemium','br'], bestFor:'português nativo', stars:4, url:'https://maritaca.ai' },
+
+  { id:'neuralmind',cat:'brasil', name:'BERTimbau / NeuralMind',icon:'🧬', color:'#fedf00',
+    desc:'Modelo de linguagem brasileiro baseado em BERT, treinado com textos em português. Referência acadêmica e empresarial para NLP em português.',
+    badges:['gratuito','br'], bestFor:'NLP & pesquisa', stars:3, url:'https://neuralmind.ai' },
+];
+
+// ═══════════════════════════════════════════════
+// RENDER ENGINE
+// ═══════════════════════════════════════════════
+let currentCat = 'todos';
+let currentFilter = 'todos';
+
+const CATEGORIES = {
+  chatbots:     { label:'Chatbots IA',     emoji:'🤖', color:'rgba(16,163,127,.12)',  desc:'Assistentes conversacionais de uso geral' },
+  imagens:      { label:'Geração de Imagens', emoji:'🎨', color:'rgba(255,107,53,.1)', desc:'Crie imagens, arte e designs com IA' },
+  video:        { label:'Geração de Vídeo',emoji:'🎬', color:'rgba(139,92,246,.1)',   desc:'Transforme texto em vídeos impressionantes' },
+  codigo:       { label:'Código & Dev',    emoji:'💻', color:'rgba(0,229,255,.08)',   desc:'IAs para programadores e desenvolvedores' },
+  escrita:      { label:'Escrita & Copy',  emoji:'✍️', color:'rgba(99,102,241,.1)',   desc:'Produza textos, blogs e copy profissionais' },
+  audio:        { label:'Áudio & Voz',     emoji:'🎙️', color:'rgba(236,72,153,.1)',  desc:'Música, narração e transcrição com IA' },
+  produtividade:{ label:'Produtividade',   emoji:'⚡', color:'rgba(255,166,0,.08)',   desc:'Automatize tarefas e trabalhe mais rápido' },
+  pesquisa:     { label:'Pesquisa',        emoji:'🔎', color:'rgba(32,178,170,.1)',   desc:'Busque, analise e sintetize informações' },
+  brasil:       { label:'IA no Brasil',    emoji:'🇧🇷', color:'rgba(0,156,59,.08)',   desc:'Ferramentas e modelos feitos para o Brasil' },
+};
+
+function starsHTML(n) {
+  let h = '';
+  for(let i=1;i<=5;i++) h += `<span class="star${i>n?' half':''}">★</span>`;
+  return h;
+}
+
+function badgeHTML(b) {
+  const map = { gratuito:['badge-free','Grátis'], paid:['badge-paid','Pago'],
+    freemium:['badge-freemium','Freemium'], pago:['badge-paid','Pago'],
+    novo:['badge-new','Novo'], hot:['badge-hot','🔥 Em alta'], br:['badge-br','🇧🇷 BR'] };
+  return (map[b]||[]) ? `<span class="badge ${map[b][0]}">${map[b][1]}</span>` : '';
+}
+
+function renderTools() {
+  const query = document.getElementById('searchInput').value.toLowerCase();
+  const main  = document.getElementById('dirMain');
+  const empty = document.getElementById('emptyState');
+
+  let filtered = tools.filter(t => {
+    const matchCat    = currentCat === 'todos' || t.cat === currentCat;
+    const matchFilter = currentFilter === 'todos' ||
+      (currentFilter === 'gratuito'  && t.badges.includes('gratuito')) ||
+      (currentFilter === 'freemium'  && t.badges.includes('freemium')) ||
+      (currentFilter === 'pago'      && t.badges.includes('pago')) ||
+      (currentFilter === 'novo'      && t.badges.includes('novo'));
+    const matchSearch = !query ||
+      t.name.toLowerCase().includes(query) ||
+      t.desc.toLowerCase().includes(query) ||
+      t.bestFor.toLowerCase().includes(query) ||
+      t.cat.toLowerCase().includes(query);
+    return matchCat && matchFilter && matchSearch;
+  });
+
+  // Remove old sections
+  main.querySelectorAll('.cat-section').forEach(s => s.remove());
+  empty.style.display = filtered.length === 0 ? 'block' : 'none';
+
+  if (filtered.length === 0) return;
+
+  // Group by category
+  const groups = {};
+  filtered.forEach(t => {
+    if (!groups[t.cat]) groups[t.cat] = [];
+    groups[t.cat].push(t);
+  });
+
+  const catsToShow = currentCat === 'todos'
+    ? Object.keys(CATEGORIES)
+    : [currentCat];
+
+  catsToShow.forEach(cat => {
+    const items = groups[cat];
+    if (!items || items.length === 0) return;
+
+    const info = CATEGORIES[cat];
+    const section = document.createElement('div');
+    section.className = 'cat-section';
+    section.dataset.cat = cat;
+
+    // Featured items first
+    const featuredItems = items.filter(t => t.featured);
+    const regularItems  = items.filter(t => !t.featured);
+
+    let featuredHTML = featuredItems.map(t => `
+      <a class="tool-card featured" href="${t.url}" target="_blank" rel="noopener sponsored">
+        <div class="tool-icon-wrap" style="background:${t.color}22;">${t.icon}</div>
+        <div class="featured-body">
+          <div class="featured-label">⭐ Destaque da categoria</div>
+          <div class="tool-name">${t.name}</div>
+          <div class="tool-desc" style="margin:.4rem 0;">${t.desc}</div>
+          <div class="tool-footer">
+            <div class="tool-badges">${t.badges.map(badgeHTML).join('')}</div>
+            <div class="tool-best-for">Ideal para: <strong>${t.bestFor}</strong></div>
+            <div class="tool-stars">${starsHTML(t.stars)}</div>
+          </div>
+        </div>
+      </a>`).join('');
+
+    let regularHTML = regularItems.map(t => `
+      <a class="tool-card" href="${t.url}" target="_blank" rel="noopener sponsored">
+        <div class="tool-card-top">
+          <div class="tool-icon-wrap" style="background:${t.color}22;">${t.icon}</div>
+          <div class="tool-badges">${t.badges.map(badgeHTML).join('')}</div>
+        </div>
+        <div class="tool-name">${t.name}</div>
+        <div class="tool-desc">${t.desc}</div>
+        <div class="tool-footer">
+          <div class="tool-best-for">Ideal para: <strong>${t.bestFor}</strong></div>
+          <div class="tool-stars">${starsHTML(t.stars)}</div>
+        </div>
+      </a>`).join('');
+
+    section.innerHTML = `
+      <div class="cat-header">
+        <div class="cat-header-icon" style="background:${info.color}">${info.emoji}</div>
+        <div class="cat-header-info">
+          <h2>${info.label}</h2>
+          <p>${info.desc} · ${items.length} ferramenta${items.length>1?'s':''}</p>
+        </div>
+      </div>
+      ${featuredHTML}
+      <div class="tool-grid">${regularHTML}</div>`;
+
+    main.appendChild(section);
+  });
+}
+
+function setCategory(cat, el) {
+  currentCat = cat;
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  renderTools();
+}
+
+function setFilter(filter, el) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  renderTools();
+}
+
+function filterTools() { renderTools(); }
+
+// ─── Hamburger ───
+function toggleMenu() {
+  var nav = document.getElementById('mobileNav');
+  var bd  = document.getElementById('navBackdrop');
+  var open = nav.classList.toggle('open');
+  bd.classList.toggle('open', open);
+}
+function closeMenu() {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.getElementById('navBackdrop').classList.remove('open');
+}
+window.addEventListener('scroll', closeMenu, {passive:true});
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('#mobileNav a').forEach(function(a) {
+    a.addEventListener('click', closeMenu);
+  });
+});
+
+// Init
+renderTools();
+</script>
+</body>
+</html>
