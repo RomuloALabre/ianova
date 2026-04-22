@@ -1,0 +1,920 @@
+/* ═══════════════════════════════════════════════════════════════
+   IAhoje.ia.br — style.css
+   CSS Global · Versão 1.0 · Abril 2026
+   ---------------------------------------------------------------
+   Contém: reset, variáveis, tipografia, header, footer,
+   navegação mobile, badges, breadcrumb, componentes de artigo
+   (TOC, prose, callouts, FAQ, share), relacionados e utilitários.
+
+   CSS específico por página permanece inline em cada .html:
+     · index.html      → hero, ticker, featured grid, newsletter,
+                         compare table, article list, IA da semana
+     · artigos         → score cards, bar chart, verdict grid,
+                         comp table inline, winner box
+     · ias-gratuitas   → ia-card, pros-cons, ia-specs, hero-list
+     · o-que-e-ia      → timeline, concept grid, ai-types,
+                         example-list, data-highlight, analogy
+     · ferramentas     → tool-grid, cat-tabs, search, filter-btn
+═══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────
+   1. RESET & BOX MODEL
+───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-width: 0; /* evita overflow em grids e flex */
+}
+
+/* ─────────────────────────────────────────
+   2. VARIÁVEIS DE DESIGN (CSS Custom Properties)
+   Altere aqui para refletir em TODO o site.
+───────────────────────────────────────── */
+:root {
+  /* Cores de fundo */
+  --bg:        #0a0a0f;
+  --bg2:       #0f0f18;
+  --bg3:       #16161f;
+  --surface:   #1a1a26;
+  --border:    #252535;
+
+  /* Texto */
+  --text:      #e8e8f0;
+  --muted:     #7070a0;
+  --text-body: #cccce0; /* parágrafos de prosa */
+
+  /* Cores de acento */
+  --accent:    #00e5ff; /* ciano principal */
+  --accent2:   #bf5fff; /* roxo */
+  --accent3:   #ff6b35; /* laranja */
+  --green:     #00ff88;
+  --yellow:    #ffd60a;
+
+  /* Tipografia */
+  --fhead: 'Syne', sans-serif;
+  --fbody: 'DM Sans', sans-serif;
+  --fmono: 'DM Mono', monospace;
+
+  /* Espaçamento */
+  --section-pad: 3rem 2rem;
+  --max-w:       1280px;
+  --max-article: 860px;
+}
+
+/* ─────────────────────────────────────────
+   3. BASE HTML & BODY
+───────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:   var(--bg);
+  color:        var(--text);
+  font-family:  var(--fbody);
+  font-size:    16px;
+  line-height:  1.7;
+  overflow-x:   hidden;
+}
+
+/* Noise overlay — textura sutil em toda a página */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: .4;
+}
+
+/* ─────────────────────────────────────────
+   4. SCROLLBAR CUSTOMIZADA
+───────────────────────────────────────── */
+::-webkit-scrollbar         { width: 4px; }
+::-webkit-scrollbar-track   { background: var(--bg); }
+::-webkit-scrollbar-thumb   { background: var(--accent); border-radius: 2px; }
+
+/* ─────────────────────────────────────────
+   5. BARRA DE PROGRESSO DE LEITURA
+   Usada nos artigos (controlada via JS).
+───────────────────────────────────────── */
+#progress {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 9998;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transition: width .1s linear;
+}
+
+/* ─────────────────────────────────────────
+   6. HEADER & NAVEGAÇÃO DESKTOP
+───────────────────────────────────────── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,10,15,.88);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+/* Logo */
+.logo {
+  font-family: var(--fhead);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  letter-spacing: -.02em;
+}
+
+.logo-badge {
+  background: var(--accent);
+  color: #000;
+  font-size: .55rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: var(--fmono);
+  letter-spacing: .08em;
+}
+
+/* Nav links desktop */
+nav { display: flex; gap: .25rem; }
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: .85rem;
+  font-weight: 500;
+  padding: .4rem .75rem;
+  border-radius: 6px;
+  transition: color .2s, background .2s;
+}
+
+nav a:hover  { color: var(--text); background: var(--surface); }
+nav a.active { color: var(--accent); }
+
+/* Botão CTA no header */
+.header-cta {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  font-family: var(--fbody);
+  font-size: .8rem;
+  font-weight: 600;
+  padding: .45rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity .2s, transform .15s;
+}
+.header-cta:hover { opacity: .85; transform: translateY(-1px); }
+
+/* ─────────────────────────────────────────
+   7. MENU HAMBÚRGUER (MOBILE)
+───────────────────────────────────────── */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .4rem;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all .25s;
+}
+
+/* Nav mobile — fixada abaixo do header */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 64px; left: 0; right: 0;
+  z-index: 200;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: .75rem 1.25rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,.5);
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+.mobile-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: .95rem;
+  font-weight: 500;
+  padding: .65rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: color .2s;
+}
+
+.mobile-nav a:last-child { border-bottom: none; }
+.mobile-nav a:hover      { color: var(--accent); }
+.mobile-nav.open         { display: flex; }
+
+/* Backdrop escuro que fecha o menu ao clicar fora */
+.nav-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  top: 64px;
+  z-index: 199;
+  background: rgba(0,0,0,.4);
+}
+.nav-backdrop.open { display: block; }
+
+/* ─────────────────────────────────────────
+   8. BREADCRUMB
+───────────────────────────────────────── */
+.breadcrumb {
+  max-width: var(--max-article);
+  margin: 0 auto;
+  padding: 1.5rem 2rem .5rem;
+  font-family: var(--fmono);
+  font-size: .72rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a             { color: var(--muted); text-decoration: none; }
+.breadcrumb a:hover       { color: var(--accent); }
+
+/* ─────────────────────────────────────────
+   9. CABEÇALHO DE ARTIGO
+───────────────────────────────────────── */
+.article-header {
+  max-width: var(--max-article);
+  margin: 0 auto;
+  padding: 1.5rem 2rem 2rem;
+}
+
+.article-category {
+  font-family: var(--fmono);
+  font-size: .75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 1rem;
+}
+
+.article-title {
+  font-family: var(--fhead);
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  margin-bottom: 1.25rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.article-lead {
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25rem;
+}
+
+/* Meta linha (autor, data, tempo de leitura) */
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.author                   { display: flex; align-items: center; gap: .6rem; }
+
+.author-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: .85rem; font-weight: 700;
+  color: #000; font-family: var(--fhead);
+  flex-shrink: 0;
+}
+
+.author-name  { font-size: .82rem; font-weight: 600; }
+.author-role  { font-size: .72rem; color: var(--muted); }
+
+.meta-divider { width: 1px; height: 28px; background: var(--border); }
+.meta-item    { font-size: .78rem; color: var(--muted); font-family: var(--fmono); }
+
+/* ─────────────────────────────────────────
+   10. BADGES (reutilizáveis em todo o site)
+───────────────────────────────────────── */
+.badge {
+  font-size: .65rem;
+  font-family: var(--fmono);
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.badge-blue   { background: rgba(0,229,255,.1);  color: var(--accent);  border: 1px solid rgba(0,229,255,.2); }
+.badge-green  { background: rgba(0,255,136,.1);  color: var(--green);   border: 1px solid rgba(0,255,136,.2); }
+.badge-orange { background: rgba(255,107,53,.1); color: var(--accent3); border: 1px solid rgba(255,107,53,.2); }
+.badge-yellow { background: rgba(255,214,10,.1); color: var(--yellow);  border: 1px solid rgba(255,214,10,.2); }
+.badge-purple { background: rgba(191,95,255,.1); color: var(--accent2); border: 1px solid rgba(191,95,255,.2); }
+.badge-free   { background: rgba(0,255,136,.1);  color: var(--green);   border: 1px solid rgba(0,255,136,.2); }
+
+/* ─────────────────────────────────────────
+   11. LAYOUT DUPLO COLUNA (artigo + sidebar)
+───────────────────────────────────────── */
+.article-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.article-body {
+  max-width: 740px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ─────────────────────────────────────────
+   12. TABELA DE CONTEÚDO (TOC)
+───────────────────────────────────────── */
+.toc {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent2);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.toc-title {
+  font-family: var(--fhead);
+  font-size: .78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  margin-bottom: .85rem;
+}
+
+.toc ol { padding-left: 1.2rem; }
+.toc li { margin-bottom: .4rem; }
+
+.toc a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: .85rem;
+  transition: color .2s;
+}
+.toc a:hover { color: var(--accent); }
+
+/* ─────────────────────────────────────────
+   13. PROSA — CORPO DOS ARTIGOS
+───────────────────────────────────────── */
+.prose h2 {
+  font-family: var(--fhead);
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -.025em;
+  margin: 2.75rem 0 1rem;
+  color: #fff;
+  line-height: 1.2;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.prose h3 {
+  font-family: var(--fhead);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 1.75rem 0 .6rem;
+  color: var(--text);
+}
+
+.prose p {
+  margin-bottom: 1.3rem;
+  color: var(--text-body);
+  font-weight: 300;
+  font-size: .97rem;
+}
+
+.prose strong { font-weight: 600; color: #fff; }
+.prose em     { font-style: italic; color: var(--muted); }
+
+.prose a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,229,255,.3);
+}
+.prose a:hover { border-color: var(--accent); }
+
+.prose ul,
+.prose ol       { padding-left: 1.5rem; margin-bottom: 1.3rem; }
+.prose li       { margin-bottom: .55rem; color: var(--text-body); font-weight: 300; font-size: .97rem; }
+
+.prose blockquote {
+  border-left: 3px solid var(--accent2);
+  margin: 1.75rem 0;
+  padding: .85rem 1.25rem;
+  background: rgba(191,95,255,.04);
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* ─────────────────────────────────────────
+   14. CALLOUT BOXES
+───────────────────────────────────────── */
+.callout {
+  border-radius: 10px;
+  padding: 1.1rem 1.4rem;
+  margin: 1.75rem 0;
+  display: flex;
+  gap: .9rem;
+  align-items: flex-start;
+}
+
+.callout-info  { background: rgba(0,229,255,.05);  border: 1px solid rgba(0,229,255,.18); }
+.callout-tip   { background: rgba(0,255,136,.05);  border: 1px solid rgba(0,255,136,.18); }
+.callout-warn  { background: rgba(255,214,10,.05); border: 1px solid rgba(255,214,10,.18); }
+.callout-fact  { background: rgba(191,95,255,.05); border: 1px solid rgba(191,95,255,.18); }
+
+.callout-icon  { font-size: 1.1rem; flex-shrink: 0; margin-top: .1rem; }
+
+.callout-body  { font-size: .875rem; line-height: 1.65; color: var(--muted); }
+
+.callout-body strong {
+  display: block;
+  font-family: var(--fhead);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  margin-bottom: .3rem;
+}
+
+.callout-info strong  { color: var(--accent); }
+.callout-tip strong   { color: var(--green); }
+.callout-warn strong  { color: var(--yellow); }
+.callout-fact strong  { color: var(--accent2); }
+
+/* ─────────────────────────────────────────
+   15. FAQ ACCORDION
+───────────────────────────────────────── */
+.faq             { margin-top: 3rem; }
+
+.faq-title {
+  font-family: var(--fhead);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  margin-bottom: 1rem;
+}
+
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: .75rem;
+}
+
+.faq-q {
+  width: 100%;
+  background: var(--bg2);
+  border: none;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--fbody);
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  transition: background .2s;
+}
+
+.faq-q:hover        { background: var(--bg3); }
+
+.faq-arrow {
+  color: var(--muted);
+  font-size: .75rem;
+  transition: transform .25s;
+  flex-shrink: 0;
+  margin-left: .5rem;
+}
+
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease, padding .3s;
+  background: var(--surface);
+  font-size: .875rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.faq-item.open .faq-a { max-height: 400px; padding: 1rem 1.25rem; }
+
+/* ─────────────────────────────────────────
+   16. RODAPÉ DO ARTIGO (tags + compartilhar)
+───────────────────────────────────────── */
+.article-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.af-tags { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+
+.af-tag {
+  background: var(--surface);
+  color: var(--muted);
+  font-size: .75rem;
+  font-family: var(--fmono);
+  padding: .3rem .8rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: border-color .2s, color .2s;
+}
+.af-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+.share-row  { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.share-label { font-size: .78rem; color: var(--muted); font-family: var(--fmono); }
+
+.share-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: .78rem;
+  padding: .4rem .85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--fbody);
+  transition: border-color .2s, color .2s;
+}
+.share-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ─────────────────────────────────────────
+   17. ARTIGOS RELACIONADOS
+───────────────────────────────────────── */
+.related {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.related-title {
+  font-family: var(--fhead);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: 1.5rem;
+}
+
+.related-title::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.related-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  text-decoration: none;
+  display: block;
+  transition: border-color .2s, transform .2s;
+}
+.related-card:hover { border-color: rgba(0,229,255,.3); transform: translateY(-2px); }
+
+.rc-cat {
+  font-family: var(--fmono);
+  font-size: .68rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: .5rem;
+}
+
+.rc-title {
+  font-family: var(--fhead);
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: .6rem;
+}
+
+.rc-meta { font-size: .75rem; color: var(--muted); font-family: var(--fmono); }
+
+/* ─────────────────────────────────────────
+   18. SIDEBAR STICKY (artigos)
+───────────────────────────────────────── */
+.sticky-sidebar { position: sticky; top: 80px; }
+
+.sidebar-widget {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.widget-title {
+  font-family: var(--fhead);
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 1rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* TOC sidebar com highlight da seção ativa */
+.toc-sidebar a {
+  display: block;
+  padding: .4rem 0 .4rem .75rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: .8rem;
+  border-left: 2px solid transparent;
+  transition: border-color .2s, color .2s;
+}
+
+.toc-sidebar a:hover,
+.toc-sidebar a.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+/* ─────────────────────────────────────────
+   19. TOPIC PILLS (filtros de categoria)
+───────────────────────────────────────── */
+.topic-pill {
+  background: var(--surface);
+  color: var(--muted);
+  font-size: .8rem;
+  font-weight: 500;
+  padding: .4rem 1rem;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+  display: inline-block;
+}
+
+.topic-pill:hover,
+.topic-pill.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(0,229,255,.06);
+}
+
+/* ─────────────────────────────────────────
+   20. SEÇÃO GENÉRICA (max-width + padding)
+───────────────────────────────────────── */
+.section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--section-pad);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+
+.section-title {
+  font-family: var(--fhead);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.section-title::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.see-all {
+  font-size: .8rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-family: var(--fmono);
+  opacity: .8;
+  transition: opacity .2s;
+}
+.see-all:hover { opacity: 1; }
+
+/* ─────────────────────────────────────────
+   21. FOOTER
+───────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border);
+  background: var(--bg2);
+  margin-top: 2rem;
+}
+
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 3rem 2rem 2rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.footer-brand p {
+  font-size: .825rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: .5rem;
+}
+
+.footer-col h4 {
+  font-family: var(--fhead);
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  margin-bottom: .9rem;
+}
+
+.footer-col a {
+  display: block;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: .825rem;
+  margin-bottom: .45rem;
+  transition: color .2s;
+}
+.footer-col a:hover { color: var(--accent); }
+
+.footer-bottom {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: .75rem;
+  color: var(--muted);
+  font-family: var(--fmono);
+}
+
+/* ─────────────────────────────────────────
+   22. UTILITÁRIOS DE TEXTO
+───────────────────────────────────────── */
+.card-title,
+.card-excerpt,
+.card-category,
+.article-body .card-title,
+.trending-text a {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.text-accent  { color: var(--accent); }
+.text-muted   { color: var(--muted); }
+.text-green   { color: var(--green); }
+.font-mono    { font-family: var(--fmono); }
+.font-head    { font-family: var(--fhead); }
+
+/* ─────────────────────────────────────────
+   23. RESPONSIVIDADE — TABLET (≤900px)
+───────────────────────────────────────── */
+@media (max-width: 900px) {
+  /* Layout artigo */
+  .article-layout    { grid-template-columns: 1fr; }
+  .sticky-sidebar    { display: none; }
+
+  /* Artigos relacionados */
+  .related-grid      { grid-template-columns: 1fr 1fr; }
+
+  /* Footer */
+  .footer-inner      { grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+  /* Navegação */
+  nav                { display: none; }
+  .menu-toggle       { display: flex; }
+  .header-cta        { display: none; }
+}
+
+/* ─────────────────────────────────────────
+   24. RESPONSIVIDADE — MOBILE (≤600px)
+───────────────────────────────────────── */
+@media (max-width: 600px) {
+  /* Espaçamentos gerais */
+  .section            { padding: 2rem 1rem; }
+  .article-header     { padding-left: 1rem; padding-right: 1rem; }
+  .breadcrumb         { padding-left: 1rem; padding-right: 1rem; }
+  .article-layout     { padding: 0 1rem 3rem; }
+  .related            { padding: 0 1rem 3rem; }
+
+  /* Header */
+  .header-inner       { padding: 0 1rem; }
+  .logo               { font-size: 1.25rem; }
+
+  /* Artigo */
+  .article-title      { font-size: 1.8rem; letter-spacing: -.02em; }
+  .article-lead       { font-size: 1rem; padding-left: .9rem; }
+  .article-meta       { gap: .6rem; }
+  .meta-divider       { display: none; }
+
+  /* Prose */
+  .prose h2           { font-size: 1.25rem; }
+
+  /* Artigos relacionados */
+  .related-grid       { grid-template-columns: 1fr; }
+
+  /* Footer */
+  .footer-inner       { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1rem 1rem; }
+  .footer-bottom      { flex-direction: column; gap: .5rem; text-align: center; padding: 1rem; }
+
+  /* FAQ */
+  .faq-q              { font-size: .85rem; }
+
+  /* Share */
+  .share-row          { flex-wrap: wrap; }
+  .af-tags            { flex-wrap: wrap; }
+
+  /* TOC */
+  .toc ol             { padding-left: .9rem; }
+}
+
+/* ─────────────────────────────────────────
+   25. JAVASCRIPT HELPERS
+   Classes adicionadas/removidas via JS.
+───────────────────────────────────────── */
+.is-hidden  { display: none !important; }
+.is-visible { display: block !important; }
