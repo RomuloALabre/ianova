@@ -4,50 +4,120 @@
 
   <!-- HOME -->
   <url>
-    <loc>https://iahoje.ia.br/</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://ianova.ia.br/</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- ARTIGO EXEMPLO -->
+  <!-- SOBRE -->
   <url>
-    <loc>https://iahoje.ia.br/comparativo/chatgpt-vs-gemini-vs-claude-2026</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://ianova.ia.br/sobre</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- FERRAMENTAS -->
+  <url>
+    <loc>https://ianova.ia.br/ferramentas</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ARTIGOS -->
+  <url>
+    <loc>https://ianova.ia.br/comparativo/chatgpt-vs-gemini-vs-claude-2026</loc>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <news:news>
       <news:publication>
-        <news:name>IAhoje</news:name>
+        <news:name>IAnova</news:name>
         <news:language>pt</news:language>
       </news:publication>
-      <news:publication_date>2026-04-17</news:publication_date>
+      <news:publication_date>2026-04-20</news:publication_date>
       <news:title>ChatGPT vs Gemini vs Claude: qual IA domina em 2026?</news:title>
     </news:news>
   </url>
 
-  <!-- CATEGORIAS (adicionar conforme crescer) -->
   <url>
-    <loc>https://iahoje.ia.br/comparativos/</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://ianova.ia.br/comparativo/melhores-ias-gratuitas-2026</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication>
+        <news:name>IAnova</news:name>
+        <news:language>pt</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-20</news:publication_date>
+      <news:title>10 melhores IAs gratuitas para usar em 2026</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://ianova.ia.br/tutorial/o-que-e-inteligencia-artificial</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <news:news>
+      <news:publication>
+        <news:name>IAnova</news:name>
+        <news:language>pt</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-20</news:publication_date>
+      <news:title>O que é Inteligência Artificial? Guia completo 2026</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://ianova.ia.br/tutorial/como-usar-ia-para-trabalhar-mais-rapido</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication>
+        <news:name>IAnova</news:name>
+        <news:language>pt</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-23</news:publication_date>
+      <news:title>Como usar IA para trabalhar mais rápido em 2026</news:title>
+    </news:news>
+  </url>
+
+  <url>
+    <loc>https://ianova.ia.br/comparativo/melhores-ias-para-criar-imagens-2026</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <news:news>
+      <news:publication>
+        <news:name>IAnova</news:name>
+        <news:language>pt</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-23</news:publication_date>
+      <news:title>Melhores IAs para criar imagens em 2026</news:title>
+    </news:news>
+  </url>
+
+  <!-- CATEGORIAS -->
+  <url>
+    <loc>https://ianova.ia.br/comparativos/</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iahoje.ia.br/tutoriais/</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://ianova.ia.br/tutoriais/</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iahoje.ia.br/ferramentas/</loc>
-    <lastmod>2026-04-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://iahoje.ia.br/noticias/</loc>
-    <lastmod>2026-04-18</lastmod>
+    <loc>https://ianova.ia.br/noticias/</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>

@@ -1,4 +1,4 @@
-# IAhoje.ia.br — robots.txt
+# IAnova.ia.br — robots.txt
 User-agent: *
 Allow: /
 
@@ -8,7 +8,7 @@ Disallow: /drafts/
 Disallow: /tmp/
 
 # Sitemap
-Sitemap: https://iahoje.ia.br/sitemap.xml
+Sitemap: https://ianova.ia.br/sitemap.xml
 
 # Crawl delay para bots mais agressivos
 User-agent: AhrefsBot

@@ -376,6 +376,34 @@
     .footer-bottom { max-width:1280px; margin:0 auto; padding:1.25rem 2rem; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; font-size:.75rem; color:var(--muted); font-family:var(--fmono); }
 
     /* Responsive */
+    /* ═══ MONETIZAÇÃO — Afiliados ═══ */
+    .affiliate-widget { background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(191,95,255,.06)); border:1px solid rgba(0,229,255,.2); }
+    .affiliate-widget .widget-title { color:var(--accent); border-bottom-color:rgba(0,229,255,.15); }
+    .aff-tool { display:flex; align-items:center; justify-content:space-between; padding:.6rem 0; border-bottom:1px solid var(--border); gap:.5rem; }
+    .aff-tool:last-of-type { border-bottom:none; }
+    .aff-tool-info { display:flex; flex-direction:column; gap:.15rem; }
+    .aff-tool-name { font-size:.82rem; font-weight:600; color:var(--text); }
+    .aff-tool-desc { font-size:.7rem; color:var(--muted); font-family:var(--fmono); }
+    .btn-try { background:var(--accent); color:#000; font-size:.68rem; font-weight:700; font-family:var(--fmono); padding:.3rem .65rem; border-radius:4px; text-decoration:none; flex-shrink:0; transition:opacity .2s; }
+    .btn-try:hover { opacity:.85; }
+    .btn-try.placeholder { background:var(--surface); color:var(--muted); border:1px solid var(--border); pointer-events:none; }
+    .aff-disclaimer { font-size:.65rem; color:var(--muted); margin-top:.75rem; line-height:1.5; font-style:italic; }
+    .article-cta { background:linear-gradient(135deg,rgba(0,229,255,.05),rgba(191,95,255,.05)); border:1px solid rgba(0,229,255,.18); border-radius:14px; padding:1.75rem; margin:2.5rem 0; }
+    .article-cta-label { font-family:var(--fmono); font-size:.68rem; text-transform:uppercase; letter-spacing:.12em; color:var(--accent); margin-bottom:.6rem; }
+    .article-cta-title { font-family:var(--fhead); font-size:1.15rem; font-weight:800; color:#fff; margin-bottom:.5rem; letter-spacing:-.02em; }
+    .article-cta-text { font-size:.875rem; color:var(--muted); line-height:1.6; margin-bottom:1.25rem; }
+    .article-cta-tools { display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem; margin-bottom:1.25rem; }
+    .cta-tool-card { background:var(--bg2); border:1px solid var(--border); border-radius:10px; padding:1rem; display:flex; flex-direction:column; gap:.4rem; transition:border-color .2s; }
+    .cta-tool-card:hover { border-color:rgba(0,229,255,.3); }
+    .cta-tool-icon { font-size:1.4rem; }
+    .cta-tool-name { font-family:var(--fhead); font-size:.85rem; font-weight:700; color:var(--text); }
+    .cta-tool-tag { font-family:var(--fmono); font-size:.65rem; color:var(--muted); }
+    .cta-tool-btn { margin-top:.35rem; display:inline-block; background:transparent; border:1px solid var(--border); color:var(--muted); font-size:.7rem; font-family:var(--fmono); padding:.3rem .6rem; border-radius:4px; text-decoration:none; text-align:center; transition:all .2s; }
+    .cta-tool-btn:hover { border-color:var(--accent); color:var(--accent); }
+    .cta-tool-btn.placeholder { pointer-events:none; opacity:.45; }
+    .article-cta-footer { font-size:.7rem; color:var(--muted); font-style:italic; }
+    @media (max-width:680px) { .article-cta-tools { grid-template-columns:1fr; } }
+
     @media (max-width:900px) { .article-layout { grid-template-columns:1fr; } .sticky-sidebar { display:none; } .pros-cons { grid-template-columns:1fr; } .related-grid { grid-template-columns:1fr 1fr; } .footer-inner { grid-template-columns:1fr 1fr; } nav { display:none; } .menu-toggle { display:flex; } .header-cta { display:none; } }
     @media (max-width:600px) { .ia-specs { grid-template-columns:1fr 1fr; } .related-grid { grid-template-columns:1fr; } .footer-inner { grid-template-columns:1fr; gap:1.5rem; padding:2rem 1rem 1rem; } .footer-bottom { flex-direction:column; gap:.5rem; text-align:center; padding:1rem; } .article-header, .hero-list, .breadcrumb { padding-left:1rem; padding-right:1rem; } .article-layout { padding:0 1rem 3rem; } .article-title { font-size:1.8rem; } .ia-card-header { padding:1.25rem; } .ia-card-body { padding:1.25rem; } .related { padding:0 1rem 3rem; } * { min-width:0; } }
   </style>
@@ -1056,6 +1084,35 @@
     </div>
   </div>
 
+  <!-- CTA AFILIADO — FINAL DO ARTIGO -->
+  <!-- AFILIADO: substituir href="#" pelos links reais de cada programa quando disponíveis -->
+  <div class="article-cta">
+    <div class="article-cta-label">Ferramentas recomendadas</div>
+    <div class="article-cta-title">Comece agora — todas gratuitas.</div>
+    <p class="article-cta-text">Todas as ferramentas desta lista têm plano gratuito real. Escolha as que mais combinam com o seu uso e teste sem compromisso.</p>
+    <div class="article-cta-tools">
+      <div class="cta-tool-card">
+        <div class="cta-tool-icon">✨</div>
+        <div class="cta-tool-name">Gemini</div>
+        <div class="cta-tool-tag">Google · Melhor plano free</div>
+        <a href="#" class="cta-tool-btn placeholder" rel="sponsored nofollow noopener" target="_blank">Testar grátis →</a>
+      </div>
+      <div class="cta-tool-card">
+        <div class="cta-tool-icon">🧠</div>
+        <div class="cta-tool-name">Claude</div>
+        <div class="cta-tool-tag">Anthropic · Melhor escrita</div>
+        <a href="#" class="cta-tool-btn placeholder" rel="sponsored nofollow noopener" target="_blank">Testar grátis →</a>
+      </div>
+      <div class="cta-tool-card">
+        <div class="cta-tool-icon">🔍</div>
+        <div class="cta-tool-name">Perplexity</div>
+        <div class="cta-tool-tag">Perplexity AI · Melhor busca</div>
+        <a href="#" class="cta-tool-btn placeholder" rel="sponsored nofollow noopener" target="_blank">Testar grátis →</a>
+      </div>
+    </div>
+    <p class="article-cta-footer">* Links de parceiros. Você não paga nada a mais — e ajuda o IAnova a continuar gratuito.</p>
+  </div>
+
   <!-- FAQ -->
   <div class="faq" id="faq">
     <div class="faq-title">Perguntas frequentes</div>
@@ -1121,6 +1178,34 @@
       <a href="#faq">FAQ</a>
     </div>
   </div>
+  <!-- WIDGET AFILIADO — SIDEBAR -->
+  <!-- AFILIADO: substituir href="#" pelos links reais de cada programa quando disponíveis -->
+  <div class="sidebar-widget affiliate-widget">
+    <div class="widget-title">🔗 Experimente grátis</div>
+    <div class="aff-tool">
+      <div class="aff-tool-info">
+        <div class="aff-tool-name">Gemini</div>
+        <div class="aff-tool-desc">Google · Plano gratuito</div>
+      </div>
+      <a href="#" class="btn-try placeholder" rel="sponsored nofollow noopener" target="_blank">Testar</a>
+    </div>
+    <div class="aff-tool">
+      <div class="aff-tool-info">
+        <div class="aff-tool-name">Claude</div>
+        <div class="aff-tool-desc">Anthropic · Plano gratuito</div>
+      </div>
+      <a href="#" class="btn-try placeholder" rel="sponsored nofollow noopener" target="_blank">Testar</a>
+    </div>
+    <div class="aff-tool">
+      <div class="aff-tool-info">
+        <div class="aff-tool-name">Perplexity</div>
+        <div class="aff-tool-desc">Perplexity AI · Plano gratuito</div>
+      </div>
+      <a href="#" class="btn-try placeholder" rel="sponsored nofollow noopener" target="_blank">Testar</a>
+    </div>
+    <p class="aff-disclaimer">Links de parceiros. Sem custo extra para você.</p>
+  </div>
+
   <div class="sidebar-widget">
     <div class="widget-title">Newsletter IAnova</div>
     <p style="font-size:.8rem;color:var(--muted);margin-bottom:.85rem;line-height:1.5;">Novidades e comparativos de IA toda semana. Grátis.</p>
