@@ -1477,7 +1477,23 @@
   }
 </script>
 
-<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-<script src="https://www.google.com/recaptcha/api.js?hl=pt"></script>
+<script>
+  function ativarFormularioBrevo() {
+    const scriptBrevo = document.createElement('script');
+    scriptBrevo.src = "https://sibforms.com/forms/end-form/build/main.js";
+    scriptBrevo.async = true;
+    document.body.appendChild(scriptBrevo);
+
+    // Remove os gatilhos para carregar apenas uma vez
+    window.removeEventListener('scroll', ativarFormularioBrevo);
+    window.removeEventListener('mousemove', ativarFormularioBrevo);
+    window.removeEventListener('touchstart', ativarFormularioBrevo);
+  }
+
+  // Ativa o carregamento na primeira interação real do usuário
+  window.addEventListener('scroll', ativarFormularioBrevo, { passive: true });
+  window.addEventListener('mousemove', ativarFormularioBrevo);
+  window.addEventListener('touchstart', ativarFormularioBrevo, { passive: true });
+</script>
 </body>
 </html>
