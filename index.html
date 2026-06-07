@@ -111,6 +111,7 @@
       --surface:   #1a1a26;
       --border:    #252535;
       --text:      #e8e8f0;
+      --text2:     #c9e0e7;
       --muted:     #7070a0;
       --accent:    #00e5ff;
       --accent2:   #bf5fff;
@@ -593,18 +594,23 @@
       letter-spacing: -.02em; margin-bottom: .5rem;
     }
 
-    .newsletter p { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }
+    .newsletter p { color: var(--text2); font-size: .9rem; margin-bottom: 1.5rem; }
 
-    .nl-form { display: flex; gap: .6rem; max-width: 440px; }
+    .nl-form { 
+      display: flex; 
+      max-width: 440px; 
+      width: 100%;
+    }
 
     .nl-input {
-      flex: 1; background: var(--surface); border: 1px solid var(--border);
+      width: 100%; /* O e-mail agora ocupa toda a largura do container */
+      background: var(--surface); border: 1px solid var(--border);
       border-radius: 8px; padding: .7rem 1rem;
       color: var(--text); font-family: var(--font-body); font-size: .875rem;
       outline: none; transition: border-color .2s;
     }
     .nl-input::placeholder { color: var(--muted); }
-    .nl-input:focus { border-color: var(--accent); }
+    .nl-input::focus { border-color: var(--accent); }
 
     .nl-btn {
       background: var(--accent); color: #000;
@@ -613,8 +619,28 @@
       padding: .7rem 1.25rem; cursor: pointer;
       transition: transform .15s, box-shadow .2s;
       white-space: nowrap;
+      
+      /* Novas propriedades para o botão se comportar bem abaixo do captcha */
+      display: block;
+      max-width: 440px;
+      width: 100%;
+      margin-top: 1.25rem;
     }
     .nl-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,229,255,.3); }
+
+    /* Ajuste no container do Captcha que fica entre o input e o botão */
+    .nl-captcha-container {
+      display: flex;
+      justify-content: flex-start;
+      max-width: 440px;
+      margin-top: 1.25rem;
+    }
+
+    @media (max-width: 600px) {
+      .nl-captcha-container {
+        justify-content: center; /* Centraliza o reCAPTCHA no mobile */
+      }
+    }
 
     .nl-disclaimer { font-size: .72rem; color: var(--muted); margin-top: .75rem; opacity: .6; }
 
@@ -877,6 +903,45 @@
       .hero-actions { flex-direction: column; align-items: flex-start; }
       .topics { overflow-x: auto; flex-wrap: nowrap; padding-bottom: .75rem; }
       .topic-pill { flex-shrink: 0; }
+    }
+
+    /* ─── AJUSTES DA NEWSLETTER BREVO ─── */
+    :where(.sib-form-message-panel) { display: none; }
+
+    .msg-feedback {
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: .875rem;
+      margin-bottom: 1.5rem;
+      text-align: left;
+      font-family: var(--font-mono);
+    }
+    .msg-error { background: rgba(255,107,53,.1); color: var(--accent3); border: 1px solid rgba(255,107,53,.2); }
+    .msg-success { background: rgba(0,255,136,.1); color: var(--green); border: 1px solid rgba(0,255,136,.2); }
+
+    .sutil-error-label {
+      display: block;
+      font-size: .75rem;
+      color: var(--accent3);
+      margin-top: .5rem;
+      font-family: var(--font-mono);
+    }
+
+    .nl-captcha-container {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 1rem;
+    }
+
+    /* Garante o comportamento correto do formulário no layout flex que você já criou */
+    .newsletter form {
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      .nl-captcha-container {
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -1296,16 +1361,46 @@
   </div>
 </section>
 
-<!-- NEWSLETTER -->
+<!-- NEWSLETTER (Substituído com integração Brevo) -->
 <section class="section" id="newsletter">
   <div class="newsletter">
-    <h3>Fique à frente com a IAnova</h3>
-    <p>Uma newsletter semanal com o que realmente importa em inteligência artificial — sem spam, sem enrolação.</p>
-    <div class="nl-form">
-      <input class="nl-input" type="email" placeholder="seu@email.com" />
-      <button class="nl-btn">Quero receber</button>
+    
+    <!-- Mensagens de Feedback controladas pelo Script da Brevo -->
+    <div id="error-message" class="sib-form-message-panel msg-feedback msg-error" style="display:none;">
+      <span class="sib-form-message-panel__inner-text">Sua assinatura não pôde ser validada.</span>
     </div>
-    <p class="nl-disclaimer">Gratuito. Cancele quando quiser. Sem spam.</p>
+
+    <div id="success-message" class="sib-form-message-panel msg-feedback msg-success" style="display:none;">
+      <span class="sib-form-message-panel__inner-text">Você realizou sua assinatura com sucesso.</span>
+    </div>
+
+    <h3>Fique à frente com a IAnova</h3>
+    <p>Mantenha-se atualizado com o que acontece no mundo da Inteligência Artificial.</p>
+    
+  <form id="sib-form" method="POST" action="https://4c934533.sibforms.com/serve/MUIFAILQnAo7T5ImJph9Kq2Wm_4M6KnbLN1jI9JmylxNtOjszP0Y-4lm8OOFwzCNdAxMaVTRbOIeRFSs1ZpxovZNa5vaMCBYUQZbkyUupdeVoPoaYP55z8_AnbGuCGCZEcsIsJpZht3M5R6sSN3dsBrV-S4Ao1NShWP3fpCyCQeeT4n23uAd55fYdBkPur2ATi18USJAupq1UE9dDw==" data-type="subscription">
+  
+  <!-- Campo de E-mail -->
+  <div class="nl-form">
+    <input class="nl-input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="seu@email.com" data-required="true" required />
+  </div>
+  
+  <label class="entry__error entry__error--primary sutil-error-label"></label>
+
+  <!-- Área do reCAPTCHA (Agora acima do botão) -->
+  <div class="sib-captcha nl-captcha-container">
+    <div class="g-recaptcha sib-visible-recaptcha" id="sib-captcha" data-sitekey="6Leo_BEtAAAAAD--oz3AIOPDMqUXclSjxPy3iVy5" data-callback="handleCaptchaResponse"></div>
+    <label class="entry__error entry__error--primary sutil-error-label"></label>
+  </div>
+
+  <!-- Botão de Envio (Posicionado abaixo do Captcha) -->
+  <button class="nl-btn nl-btn-block" type="submit" form="sib-form">Quero receber</button>
+
+  <!-- Inputs Ocultos de Controle Anti-Spam -->
+  <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none !important;">
+  <input type="hidden" name="locale" value="pt">
+</form>
+
+    <p class="nl-disclaimer">Inteiramente gratuito. Cancele quando quiser.</p>
   </div>
 </section>
 
@@ -1368,5 +1463,21 @@
     });
   });
 </script>
+<!-- INTEGRAÇÃO FORMULÁRIO BREVO + RECAPTCHA -->
+<script>
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Escolha um código de país';
+  window.LOCALE = 'pt';
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "A informação fornecida não é válida. Verifique o formato do campo e tente novamente.";
+  window.REQUIRED_ERROR_MESSAGE = "Este campo não pode ser deixado em branco. ";
+  window.GENERIC_INVALID_MESSAGE = "A informação fornecida não é válida. Verifique o formato do campo e tente novamente.";
+
+  function handleCaptchaResponse() {
+    var event = new Event('captchaChange');
+    document.getElementById('sib-captcha').dispatchEvent(event);
+  }
+</script>
+
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?hl=pt"></script>
 </body>
 </html>
