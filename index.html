@@ -1477,15 +1477,23 @@
     document.getElementById('sib-captcha').dispatchEvent(event);
   }
 </script>
-
+  
 <script>
   function ativarFormularioBrevo() {
+    // 1. Injeta primeiro o script do reCAPTCHA do Google
+    const scriptRecaptcha = document.createElement('script');
+    scriptRecaptcha.src = "https://www.google.com/recaptcha/api.js?hl=pt";
+    scriptRecaptcha.async = true;
+    scriptRecaptcha.defer = true;
+    document.body.appendChild(scriptRecaptcha);
+
+    // 2. Injeta o script principal da Brevo
     const scriptBrevo = document.createElement('script');
     scriptBrevo.src = "https://sibforms.com/forms/end-form/build/main.js";
     scriptBrevo.async = true;
     document.body.appendChild(scriptBrevo);
 
-    // Remove os gatilhos para carregar apenas uma vez
+    // Remove os gatilhos para executar a injeção apenas uma vez
     window.removeEventListener('scroll', ativarFormularioBrevo);
     window.removeEventListener('mousemove', ativarFormularioBrevo);
     window.removeEventListener('touchstart', ativarFormularioBrevo);
@@ -1496,5 +1504,6 @@
   window.addEventListener('mousemove', ativarFormularioBrevo);
   window.addEventListener('touchstart', ativarFormularioBrevo, { passive: true });
 </script>
+
 </body>
 </html>
