@@ -1388,18 +1388,15 @@
   </div>
 
   <div class="sib-captcha sib-form-block">
-    <div class="sib-captcha-container nl-captcha-container" id="sib-captcha">
-      <div class="g-recaptcha sib-visible-recaptcha" data-sitekey="6Leo_BEtAAAAAD--oz3AIOPDmQUXclSjxPy3iVy5" data-callback="handleCaptchaResponse"></div>
+    <div class="sib-captcha-container nl-captcha-container">
+      <div class="g-recaptcha sib-visible-recaptcha" id="sib-captcha" data-sitekey="6Leo_BEtAAAAAD--oz3AIOPDmQUXclSjxPy3iVy5" data-callback="handleCaptchaResponse"></div>
     </div>
     <label class="entry__error entry__error--primary sutil-error-label"></label>
   </div>
 
-  <!-- Botão de Envio (Posicionado abaixo do Captcha) -->
-  <button class="nl-btn nl-btn-block" type="submit" form="sib-form">Quero receber</button>
-
-  <!-- Inputs Ocultos de Controle Anti-Spam -->
-  <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none !important;">
-  <input type="hidden" name="locale" value="pt">
+  <div class="sib-form-block">
+    <button class="nl-btn" form="sib-form" type="submit">Inscrever-se</button>
+  </div>
 </form>
 
     <p class="nl-disclaimer">Inteiramente gratuito. Cancele quando quiser.</p>
